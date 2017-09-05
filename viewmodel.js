@@ -18,7 +18,6 @@ $(document).ready(function () {
         isClosed = false;
       } else {
         overlay.show();
-
         trigger.removeClass('is-closed');
         trigger.addClass('is-open');
         isClosed = true;
