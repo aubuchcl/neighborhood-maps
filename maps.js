@@ -1,4 +1,14 @@
 var map;
+
+var locations = [
+	  {title: 'Northstar', location: {lat: 39.27324, lng: -120.1624164}},
+	  {title: 'Squaw Valley', location: {lat: 39.2115732, lng: -120.1985282}},
+	  {title: 'Sugar Bowl', location: {lat: 39.3043494, lng: -120.3357567}},
+	  {title: 'Tahoe Donner Ski Area', location: {lat: 39.3524057, lng: -120.271583}},
+	  {title: 'Alpine Meadows', location: {lat: 39.1574066, lng: -120.2390835}}
+];
+
+
 // Create a new blank array for all the listing markers.
 var markers = [];
 function initMap() {
@@ -10,13 +20,7 @@ function initMap() {
 	});
 	// These are the real estate listings that will be shown to the user.
 	// Normally we'd have these in a database instead.
-	var locations = [
-	  {title: 'Northstar', location: {lat: 39.27324, lng: -120.1624164}},
-	  {title: 'Squaw Valley', location: {lat: 39.2115732, lng: -120.1985282}},
-	  {title: 'Sugar Bowl', location: {lat: 39.3043494, lng: -120.3357567}},
-	  {title: 'Tahoe Donner Ski Area', location: {lat: 39.3524057, lng: -120.271583}},
-	  {title: 'Alpine Meadows', location: {lat: 39.1574066, lng: -120.2390835}}
-	];
+
 	var largeInfowindow = new google.maps.InfoWindow();
 	var bounds = new google.maps.LatLngBounds();
 	// The following group uses the location array to create an array of markers on initialize.
