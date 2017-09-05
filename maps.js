@@ -1,3 +1,7 @@
+// maps will function as the model and will hold all map and business logic
+// viewmodel.js will have a majority if not all of the KO code
+// viewmodel is after maps in the src tree so it has full access to what is here
+
 var map;
 
 var locations = [
