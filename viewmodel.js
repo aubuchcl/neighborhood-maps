@@ -1,6 +1,7 @@
 
-function myFunction() {
+function searchFunction() {
     // Declare variables
+    console.log(locations)
     var input, filter, ul, li, a, i, filteredArray;
     input = document.getElementById('myInput');
     filter = input.value.toUpperCase();
@@ -13,6 +14,9 @@ function myFunction() {
         a = li[i].getElementsByTagName("a")[0];
         if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
+            console.log(li)
+            console.log('-------')
+            console.log(li[i])
             filteredArray.push(li[i])
         } else {
             li[i].style.display = "none";
