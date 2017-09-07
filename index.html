@@ -35,13 +35,14 @@
 			<div class="row">
 				<!-- <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search" class="col-sm-2"> -->
 				<!-- refactor to KO textInput -->
-				<input type="text" data-bind="textInput: userSearch" id="myInput" placeholder="Search" class="col-sm-2">
+				<input type="text" data-bind="textInput: userSearch, value: userSearch.value " id="myInput" placeholder="Search" class="col-sm-2">
+				<div data-bind="text: userSearch.value"></div>
 
 				<h3 class="col-sm-8">My Google Maps Demo</h3>
 			</div>
 
 			<div class="row">
-				<ul data-bind="foreach: locations" id="myUL" class="col-sm-4">
+				<ul data-bind="foreach: obsLocations" id="myUL" class="col-sm-4">
 					<li>
 						<a href="#" data-bind='text: title' class="listItem"></a>
 					</li>

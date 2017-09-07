@@ -18,10 +18,7 @@ function initMap() {
 	  center: tahoe,
 	  zoom: 13
 	});
-}
 
-
-function bindMarkers(){
 	var largeInfowindow = new google.maps.InfoWindow();
 	var bounds = new google.maps.LatLngBounds();
 	// The following group uses the location array to create an array of markers on initialize.
@@ -50,6 +47,9 @@ function bindMarkers(){
 	map.fitBounds(bounds);
 }
 
+
+
+
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
@@ -63,10 +63,7 @@ function populateInfoWindow(marker, infowindow) {
   });
 }
 
-//when the doc is ready make the first marker bind.
-$( document ).ready(function() {
-    bindMarkers();
-});
+
 
 
 
