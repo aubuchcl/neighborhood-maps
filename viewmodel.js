@@ -204,10 +204,6 @@ function AppViewModel(){
             for(let i=0; i<self.locations().length; i++){
                 if(self.locations()[i].title.toUpperCase().indexOf(self.searchResults()) > -1){
                     if(li[i] != undefined){
-
-                        console.log(self.locations()[i].title.toUpperCase())
-                        console.log("***********")
-                        console.log(self.searchResults())
                         li[i].style.display = "";
                     };
                 } else {

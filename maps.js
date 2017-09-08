@@ -37,9 +37,8 @@ function initMap() {
 	  // Push the marker to our array of markers.
 	  markers.push(marker);
 
+	  //bind markers to each location object
 	  (function(i){locations[i].marker = marker}(i))
-
-	  console.log(locations[i].marker)
 
 	  // Create an onclick event to open an infowindow at each marker.
 
@@ -63,9 +62,6 @@ function populateInfoWindow(marker, infowindow) {
 
   if(document.getElementById((marker.title.split(" ")[0]).toString()) == null){
 	  infowindow.marker = marker;
-	  console.log(infowindow.content)
-	  var x = document.getElementById((marker.title.split(" ")[0]).toString())
-	  console.log(x)
 	  infowindow.setContent("<div id=" + marker.title.split(" ")[0] + ">" + marker.title + '</div>');
 	  infowindow.open(map, marker);
 	  // Make sure the marker property is cleared if the infowindow is closed.
@@ -78,9 +74,6 @@ function populateInfoWindow(marker, infowindow) {
 
 $( document ).ready(function() {
 	$('.listItem').click(function(){
-		console.log("hello")
-		console.log(this.innerHTML)
-		console.log(markers[4].title)
 		var largeInfowindow = new google.maps.InfoWindow();
 
 		for(let i = 0; i < markers.length; i++){
