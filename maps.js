@@ -36,7 +36,13 @@ function initMap() {
 	  });
 	  // Push the marker to our array of markers.
 	  markers.push(marker);
+
+	  (function(i){locations[i].marker = marker}(i))
+
+	  console.log(locations[i].marker)
+
 	  // Create an onclick event to open an infowindow at each marker.
+
 	  marker.addListener('click', function() {
 	  	console.log(this);
 	    populateInfoWindow(this, largeInfowindow);
@@ -55,7 +61,8 @@ function initMap() {
 // on that markers position.
 function populateInfoWindow(marker, infowindow) {
   infowindow.marker = marker;
-  infowindow.setContent('<div>' + marker.title + '</div>');
+  console.log(infowindow.content)
+  infowindow.setContent("<div>" + marker.title + '</div>');
   infowindow.open(map, marker);
   // Make sure the marker property is cleared if the infowindow is closed.
   infowindow.addListener('closeclick',function(){
@@ -63,6 +70,18 @@ function populateInfoWindow(marker, infowindow) {
   });
 }
 
+
+$( document ).ready(function() {
+	$('.listItem').click(function(){
+		console.log("hello")
+		console.log(markers[0])
+		var largeInfowindow = new google.maps.InfoWindow();
+		for(let i = 0; i < markers.length; i++){
+			populateInfoWindow(markers[i], largeInfowindow);
+		}
+	})
+
+});
 
 
 

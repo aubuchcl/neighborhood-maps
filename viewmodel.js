@@ -216,11 +216,6 @@ function AppViewModel(){
             }
     }
 
-    $('#testButton').click(function(){
-        self.filterList();
-    })
-
-
 }
 
 
