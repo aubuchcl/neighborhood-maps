@@ -60,25 +60,36 @@ function initMap() {
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
 function populateInfoWindow(marker, infowindow) {
-  infowindow.marker = marker;
-  console.log(infowindow.content)
-  infowindow.setContent("<div>" + marker.title + '</div>');
-  infowindow.open(map, marker);
-  // Make sure the marker property is cleared if the infowindow is closed.
-  infowindow.addListener('closeclick',function(){
-    infowindow.setMarker = null;
-  });
+
+  if(document.getElementById((marker.title.split(" ")[0]).toString()) == null){
+	  infowindow.marker = marker;
+	  console.log(infowindow.content)
+	  var x = document.getElementById((marker.title.split(" ")[0]).toString())
+	  console.log(x)
+	  infowindow.setContent("<div id=" + marker.title.split(" ")[0] + ">" + marker.title + '</div>');
+	  infowindow.open(map, marker);
+	  // Make sure the marker property is cleared if the infowindow is closed.
+	  infowindow.addListener('closeclick',function(){
+	    infowindow.setMarker = null;
+	  });
+  }
 }
 
 
 $( document ).ready(function() {
 	$('.listItem').click(function(){
 		console.log("hello")
-		console.log(markers[0])
+		console.log(this.innerHTML)
+		console.log(markers[4].title)
 		var largeInfowindow = new google.maps.InfoWindow();
+
 		for(let i = 0; i < markers.length; i++){
-			populateInfoWindow(markers[i], largeInfowindow);
+			if(this.innerHTML == markers[i].title){
+				populateInfoWindow(markers[i], largeInfowindow);
+			}
 		}
+
+
 	})
 
 });
