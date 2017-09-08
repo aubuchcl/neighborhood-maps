@@ -33,20 +33,19 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row">
-				<!-- <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search" class="col-sm-2"> -->
-				<!-- refactor to KO textInput -->
-				<input type="text" data-bind="textInput: userSearch, value: userSearch.value " id="myInput" placeholder="Search" class="col-sm-2">
-				<div data-bind="text: userSearch.value"></div>
-
-				<h3 class="col-sm-8">My Google Maps Demo</h3>
+			    <input id="myInput" class="col-sm-2" data-bind="textInput: searchBar, event: {'keyup': filterList()}" placeholder="Search" />
+			    <h3 class="col-sm-8">My Google Maps Demo</h3>
 			</div>
 
 			<div class="row">
-				<ul data-bind="foreach: obsLocations" id="myUL" class="col-sm-4">
-					<li>
-						<a href="#" data-bind='text: title' class="listItem"></a>
-					</li>
-				</ul>
+			    <ul id="myUL" class="col-sm-4" data-bind="foreach: locations">
+			      <li>
+			        <a href="#" data-bind="text: title" class="listItem"></a>
+			      </li>
+			    </ul>
+
+
+
 				<div id="map" class="col-sm-8"></div>
 			</div>
 
