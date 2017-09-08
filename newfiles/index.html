@@ -12,7 +12,7 @@
     <h1>Hello, world!</h1>
 
 
-    <p>SearchBar<input data-bind="value: searchBar" /></p>
+    <p>SearchBar<input data-bind="textInput: searchBar, event: {'keyup': filterList()}" /></p>
     <p>Search Results: <strong data-bind="text: searchResults"></strong></p>
     <button data-bind="click: capitalizeInput">Push to make caps</button>
 

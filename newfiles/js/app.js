@@ -31,7 +31,9 @@ function AppViewModel(){
 	// self.location = ko.observable("{lat: 100, long: 200}");
 
 	self.searchResults = ko.computed(function(){
-		return self.searchBar();
+		var results = ""
+		results += self.searchBar().toUpperCase();
+		return results
 	}, self)
 
 	self.capitalizeInput = function(){
@@ -53,15 +55,22 @@ function AppViewModel(){
 
 	self.filterList = function(){
 		console.log(self.locations().length)
-		for(let i=0; i<self.locations().length; i++){
-			if(self.locations()[i].title.toUpperCase().indexOf(self.searchBar()) > -1){
-				console.log(li[i])
-				li[i].style.display = "";
+
+			for(let i=0; i<self.locations().length; i++){
+				if(self.locations()[i].title.toUpperCase().indexOf(self.searchResults()) > -1){
+					if(li[i] != undefined){
+
+						console.log(self.locations()[i].title.toUpperCase())
+						console.log("***********")
+						console.log(self.searchResults())
+						li[i].style.display = "";
+					};
+				} else {
+					li[i].style.display = "none";
+				}
 			}
-		}
-
-
 	}
+
 	$('#testButton').click(function(){
 		self.filterList();
 	})
