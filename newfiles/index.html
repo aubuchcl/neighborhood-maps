@@ -16,11 +16,18 @@
     <p>Search Results: <strong data-bind="text: searchResults"></strong></p>
     <button data-bind="click: capitalizeInput">Push to make caps</button>
 
+    <p>Lets See Some Locations</p>
 
+    <ul data-bind="foreach: locations" id="myUL">
+      <li>
+        <a href="#" data-bind="text: title"></a>
+      </li>
+    </ul>
 
+    <button id='testButton'> Click me please</button>
 
-    <p>Title: <strong data-bind="text: title"></strong></p>
-    <p> Location: <strong data-bind="text: location"></strong</p>
+   <!--  <p>Title: <strong data-bind="text: title"></strong></p>
+    <p> Location: <strong data-bind="text: location"></strong</p> -->
 
 
 
