@@ -12,6 +12,8 @@ function Location(title, location){
 function AppViewModel(){
     var self = this;
 
+    self.whatEver = ko.observable('<h3>Wikidata Goes Here</h3>');
+
     self.searchBar = ko.observable('');
     // title and location now come from the Location objects
     // self.title = ko.observable("NorthStar");
@@ -58,4 +60,10 @@ function AppViewModel(){
 
 
 // Activate knockout.js
-ko.applyBindings(new AppViewModel());
+var VM = new AppViewModel();
+ko.applyBindings(VM);
+
+
+
+
+

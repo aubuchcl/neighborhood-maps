@@ -4,8 +4,8 @@ var locations = [
 	  {title: 'Northstar', location: {lat: 39.27324, lng: -120.1624164}},
 	  {title: 'Squaw Valley', location: {lat: 39.2115732, lng: -120.1985282}},
 	  {title: 'Sugar Bowl', location: {lat: 39.3043494, lng: -120.3357567}},
-	  {title: 'Tahoe Donner Ski Area', location: {lat: 39.3524057, lng: -120.271583}},
-	  {title: 'Alpine Meadows', location: {lat: 39.1574066, lng: -120.2390835}}
+	  {title: 'Tahoe Donner', location: {lat: 39.3524057, lng: -120.271583}},
+	  {title: 'Alpine Meadows, California', location: {lat: 39.1574066, lng: -120.2390835}}
 ];
 
 
@@ -54,11 +54,13 @@ function initMap() {
 
 
 
-
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
 function populateInfoWindow(marker, infowindow) {
+
+	getData(VM.whatEver, marker)
+	console.log('made it')
 
   if(document.getElementById((marker.title.split(" ")[0]).toString()) == null){
 	  infowindow.marker = marker;
@@ -70,6 +72,8 @@ function populateInfoWindow(marker, infowindow) {
 	  });
   }
 }
+
+// $.ajax("https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts&list=&meta=&titles=Northstar_California&exchars=1200")
 
 
 $( document ).ready(function() {
@@ -85,8 +89,29 @@ $( document ).ready(function() {
 
 	})
 
+
+
 });
 
+
+
+function getData(whatEver, marker) {
+	var query = marker.title,
+		dt = 'jsonp',
+    	wikiBase = 'https://en.wikipedia.org/w/api.php',
+    	wikiUrl = wikiBase + '?action=opensearch&search=' + query + '&format=json&callback=wikiCallback';
+
+	$.ajax({
+  		url: wikiUrl,
+  		dataType: dt,
+  		success: function(response) {
+    		console.log(response);
+
+    		whatEver(response[2][0]);
+
+  		}
+	});
+}
 
 
 
