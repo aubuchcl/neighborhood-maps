@@ -77,7 +77,7 @@ function populateInfoWindow(marker, infowindow) {
 
 			if(document.getElementById((marker.title.split(" ")[0]).toString()) == null){
 			  infowindow.marker = marker;
-
+			  marker.setAnimation(google.maps.Animation.BOUNCE)
 			  infowindow.setContent("<div id=" + marker.title.split(" ")[0] + ">" + responseData + '</div>');
 			  infowindow.open(map, marker);
 			  // Make sure the marker property is cleared if the infowindow is closed.
@@ -89,7 +89,7 @@ function populateInfoWindow(marker, infowindow) {
   		failure: function(response){
   			if(document.getElementById((marker.title.split(" ")[0]).toString()) == null){
 			  infowindow.marker = marker;
-
+			  marker.setAnimation(google.maps.Animation.BOUNCE)
 			  infowindow.setContent("<div id=" + marker.title.split(" ")[0] + ">" + "sorry no info available" + '</div>');
 			  infowindow.open(map, marker);
 			  // Make sure the marker property is cleared if the infowindow is closed.
