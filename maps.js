@@ -75,16 +75,28 @@ function populateInfoWindow(marker, infowindow) {
 
 
 
-		if(document.getElementById((marker.title.split(" ")[0]).toString()) == null){
-		  infowindow.marker = marker;
+			if(document.getElementById((marker.title.split(" ")[0]).toString()) == null){
+			  infowindow.marker = marker;
 
-		  infowindow.setContent("<div id=" + marker.title.split(" ")[0] + ">" + responseData + '</div>');
-		  infowindow.open(map, marker);
-		  // Make sure the marker property is cleared if the infowindow is closed.
-		  infowindow.addListener('closeclick',function(){
-		    infowindow.setMarker = null;
-		  });
-		}
+			  infowindow.setContent("<div id=" + marker.title.split(" ")[0] + ">" + responseData + '</div>');
+			  infowindow.open(map, marker);
+			  // Make sure the marker property is cleared if the infowindow is closed.
+			  infowindow.addListener('closeclick',function(){
+			    infowindow.setMarker = null;
+			  });
+			}
+  		},
+  		failure: function(response){
+  			if(document.getElementById((marker.title.split(" ")[0]).toString()) == null){
+			  infowindow.marker = marker;
+
+			  infowindow.setContent("<div id=" + marker.title.split(" ")[0] + ">" + "sorry no info available" + '</div>');
+			  infowindow.open(map, marker);
+			  // Make sure the marker property is cleared if the infowindow is closed.
+			  infowindow.addListener('closeclick',function(){
+			    infowindow.setMarker = null;
+			  });
+			}
   		}
 	});
 }
